@@ -1,4 +1,4 @@
-{% set version = "2.1.19" %}
+{% set version = "2.2.0" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -14,11 +14,11 @@ source:
     - https://cran.r-project.org/src/contrib/Archive/yaml/yaml_{{ version }}.tar.gz
 
 
-  sha256: e5db035693ac765e4b5fe1fc2e9711f8ca73e398e3f2bf27cc60def59ccd7f11
+  sha256: 55bcac87eca360ab5904914fcff473a6981a1f5e6d2215d2634344d0ac30c546
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
 
   rpaths:
     - lib/R/lib/
