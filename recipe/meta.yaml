@@ -1,5 +1,4 @@
-{% set version = "2.2.0" %}
-
+{% set version = '2.2.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,52 +9,51 @@ package:
 source:
   fn: yaml_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/yaml_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/yaml/yaml_{{ version }}.tar.gz
-
-
+    - {{ cran_mirror }}/src/contrib/yaml_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/yaml/yaml_{{ version }}.tar.gz
   sha256: 55bcac87eca360ab5904914fcff473a6981a1f5e6d2215d2634344d0ac30c546
 
 build:
   merge_build_host: True  # [win]
-  number: 0
-
+  number: 1
+  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
-  skip: True  # [win32]
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('c') }}        # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
   host:
     - r-base
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
 
 test:
   commands:
-    - $R -e "library('yaml')"  # [not win]
+    - $R -e "library('yaml')"           # [not win]
     - "\"%R%\" -e \"library('yaml')\""  # [win]
 
-
-
 about:
-  home: https://CRAN.R-project.org/package=yaml
+  home: https://github.com/viking/r-yaml/
   license: BSD_3_clause
-  summary: Implements the 'libyaml' 'YAML' 1.1 parser and emitter (<http://pyyaml.org/wiki/LibYAML>) for R.
+  summary: Implements the 'libyaml' 'YAML' 1.1 parser and emitter (<http://pyyaml.org/wiki/LibYAML>)
+    for R.
   license_family: BSD
-  license_file: LICENSE
-
-
 
 extra:
   recipe-maintainers:
     - croth1
+    - bsennblad
     - johanneskoester
     - bgruening
     - daler
     - jdblischak
-    - bsennblad
+    - cbrueffer
