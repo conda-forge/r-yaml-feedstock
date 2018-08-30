@@ -1,7 +1,7 @@
 About r-yaml
 ============
 
-Home: https://CRAN.R-project.org/package=yaml
+Home: https://github.com/viking/r-yaml/
 
 Package license: BSD_3_clause
 
