@@ -1,4 +1,4 @@
-{% set version = '2.2.0' %}
+{% set version = "2.2.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,11 +11,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/yaml_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/yaml/yaml_{{ version }}.tar.gz
-  sha256: 55bcac87eca360ab5904914fcff473a6981a1f5e6d2215d2634344d0ac30c546
+  sha256: 1115b7bc2a397fa724956eec916df5160c600c99a3be186d21558dd38d782783
 
 build:
   merge_build_host: True  # [win]
-  number: 1002
+  number: 0
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
@@ -44,6 +44,10 @@ test:
 about:
   home: https://github.com/viking/r-yaml/
   license: BSD_3_clause
+  license_file: 
+    - LICENSE 
+    - COPYING 
+
   summary: Implements the 'libyaml' 'YAML' 1.1 parser and emitter (<http://pyyaml.org/wiki/LibYAML>)
     for R.
   license_family: BSD
