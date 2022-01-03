@@ -58,8 +58,3 @@ extra:
     - conda-forge/r
     - croth1
     - bsennblad
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
