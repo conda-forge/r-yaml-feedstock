@@ -15,7 +15,7 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 0
+  number: 1
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
@@ -25,17 +25,17 @@ requirements:
   build:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
     - {{ compiler('c') }}        # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ posix }}filesystem        # [win]
+    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ posix }}filesystem      # [win]
     - {{ posix }}make
-    - {{ posix }}sed               # [win]
-    - {{ posix }}coreutils         # [win]
-    - {{ posix }}zip               # [win]
+    - {{ posix }}sed             # [win]
+    - {{ posix }}coreutils       # [win]
+    - {{ posix }}zip             # [win]
   host:
     - r-base
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
+    - {{ native }}gcc-libs       # [win]
 
 test:
   commands:
@@ -44,7 +44,7 @@ test:
 
 about:
   home: https://github.com/viking/r-yaml/
-  license: BSD_3_clause
+  license: BSD-3-Clause
   license_file:
     - LICENSE
     - COPYING
