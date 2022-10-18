@@ -3,7 +3,7 @@ About r-yaml
 
 Home: https://github.com/viking/r-yaml/
 
-Package license: BSD_3_clause
+Package license: BSD-3-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-yaml-feedstock/blob/main/LICENSE.txt)
 
