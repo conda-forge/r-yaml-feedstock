@@ -1,4 +1,4 @@
-{% set version = "2.3.11" %}
+{% set version = "2.3.12" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/yaml_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/yaml/yaml_{{ version }}.tar.gz
-  sha256: b9c4fa70b9e2ba2257d59b7d4ba5d80106ed63f66d6d2a4da26b754160bac22c
+  sha256: 80ccf3dde851133ef3e333b818a817c296c6ccdacfc4709cd466995289cd556c
 
 build:
   number: 0
